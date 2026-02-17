@@ -1,0 +1,13 @@
+meta {
+  name: Search products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/v1/products
+}
+
+headers {
+  Content-Type: application/json
+}

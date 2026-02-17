@@ -1,0 +1,27 @@
+meta {
+  name: Create invoice
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/v1/invoices
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "clientId": "client-1",
+    "lines": [
+      {
+        "productId": "prod-1",
+        "units": 1
+      }
+    ]
+  }
+}

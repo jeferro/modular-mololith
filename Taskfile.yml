@@ -1,0 +1,50 @@
+version: "3"
+
+vars:
+  CODE_DIR: ecommerce
+
+tasks:
+  install:
+    desc: "Install project"
+    silent: true
+    cmds:
+      - echo "## Installing ASDF plugins..."
+      - asdf plugin add java || true
+      - asdf plugin add maven || true
+      - asdf plugin add quarkus || true
+      - echo "✅ Asdf plugins installed successfully"
+      - echo ""
+
+      - echo "## Installing ASDF tools..."
+      - asdf install
+      - echo "✅ Asdf tools installed successfully"
+      - echo ""
+
+      - task: build
+
+  build-ecommerce:
+    desc: "Build project"
+    silent: true
+    dir: "{{.CODE_DIR}}"
+    cmds:
+      - echo "## Building ecommerce project..."
+      - mvn clean test
+      - echo "✅ Project built ecommerce successfully"
+      - echo ""
+
+  test-ecommerce:
+    desc: "Test project"
+    silent: true
+    dir: "{{.CODE_DIR}}"
+    cmds:
+      - echo "## Testing ecommerce project..."
+      - mvn clean test
+      - echo "✅ Project test ecommerce successfully"
+      - echo ""
+
+  start-ecommerce:
+    desc: "Start project"
+    silent: true
+    dir: "{{.CODE_DIR}}"
+    cmds:
+      - mvn clean compile quarkus:dev

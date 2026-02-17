@@ -1,0 +1,13 @@
+meta {
+  name: Search invoices
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/v1/invoices
+}
+
+headers {
+  Content-Type: application/json
+}
