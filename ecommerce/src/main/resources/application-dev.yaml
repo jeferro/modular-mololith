@@ -1,0 +1,17 @@
+quarkus:
+  analytics:
+    disabled: true
+
+  devservices:
+    enabled: false
+
+  datasource:
+    username: ecommerce
+    password: ecommerce
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/ecommerce
+
+  hibernate-orm:
+    log:
+      sql: true
+
