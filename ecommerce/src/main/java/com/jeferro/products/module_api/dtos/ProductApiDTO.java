@@ -1,4 +1,4 @@
-package com.jeferro.products.infrastructure.module_contracts.dtos;
+package com.jeferro.products.module_api.dtos;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Getter
 @RequiredArgsConstructor
-public class ProductContractDTO {
+public class ProductApiDTO {
 
     private final String id;
     private final String name;

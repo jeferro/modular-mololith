@@ -1,6 +1,6 @@
 package com.jeferro.invoices.clients.infrastructure.module;
 
-import com.jeferro.clients.infrastructure.module_contracts.ClientContract;
+import com.jeferro.clients.module_api.ClientApi;
 import com.jeferro.invoices.clients.domain.Client;
 import com.jeferro.invoices.clients.domain.ClientFinder;
 import com.jeferro.invoices.clients.infrastructure.module.mappers.ClientModuleMapper;
@@ -11,13 +11,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ClientModuleFinder implements ClientFinder {
 
-  private final ClientContract clientContract;
+  private final ClientApi clientApi;
 
   private final ClientModuleMapper mapper;
 
   @Override
   public Client findByIdOrError(String id) {
-    var dto = clientContract.findByIdOrError(id);
+    var dto = clientApi.findByIdOrError(id);
 
     return mapper.toDTO(dto);
   }
