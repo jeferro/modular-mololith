@@ -20,5 +20,3 @@ quarkus:
     invoices:
       datasource: invoices
       packages: com.jeferro.invoices
-
-

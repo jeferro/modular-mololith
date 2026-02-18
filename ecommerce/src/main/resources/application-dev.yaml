@@ -23,3 +23,7 @@ quarkus:
       database:
         generation: drop-and-create
       sql-load-script: invoices/dev-data.sql
+
+  rest-client:
+    clients-api:
+      url: http://localhost:8081
