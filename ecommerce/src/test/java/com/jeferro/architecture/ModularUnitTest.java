@@ -105,7 +105,7 @@ class ModularUnitTest {
   private static boolean isInModuleContractsPackage(JavaClass target) {
     String packageName = target.getPackageName();
 
-    return packageName.contains(".module_contracts");
+    return packageName.contains(".module_api");
   }
 
   private static boolean isInInfrastructureLayer(JavaClass javaClass) {
