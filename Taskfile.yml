@@ -1,7 +1,8 @@
 version: "3"
 
 vars:
-  CODE_DIR: ecommerce
+  ECOMMERCE_CODE_DIR: ecommerce
+  CLIENTS_CODE_DIR: clients
 
 tasks:
   install:
@@ -23,28 +24,55 @@ tasks:
       - task: build
 
   build-ecommerce:
-    desc: "Build project"
+    desc: "Build ecommerce project"
     silent: true
-    dir: "{{.CODE_DIR}}"
+    dir: "{{.ECOMMERCE_CODE_DIR}}"
     cmds:
       - echo "## Building ecommerce project..."
       - mvn clean test
       - echo "✅ Project built ecommerce successfully"
       - echo ""
 
-  test-ecommerce:
-    desc: "Test project"
+  build-clients:
+    desc: "Build clients project"
     silent: true
-    dir: "{{.CODE_DIR}}"
+    dir: "{{.CLIENTS_CODE_DIR}}"
+    cmds:
+      - echo "## Building clients project..."
+      - mvn clean test
+      - echo "✅ Project built clients successfully"
+      - echo ""
+
+  test-ecommerce:
+    desc: "Test ecommerce project"
+    silent: true
+    dir: "{{.ECOMMERCE_CODE_DIR}}"
     cmds:
       - echo "## Testing ecommerce project..."
       - mvn clean test
       - echo "✅ Project test ecommerce successfully"
       - echo ""
 
-  start-ecommerce:
-    desc: "Start project"
+  test-clients:
+    desc: "Test clients project"
     silent: true
-    dir: "{{.CODE_DIR}}"
+    dir: "{{.CLIENTS_CODE_DIR}}"
+    cmds:
+      - echo "## Testing clients project..."
+      - mvn clean test
+      - echo "✅ Project test clients successfully"
+      - echo ""
+
+  start-ecommerce:
+    desc: "Start ecommerce project"
+    silent: true
+    dir: "{{.ECOMMERCE_CODE_DIR}}"
+    cmds:
+      - mvn clean compile quarkus:dev
+
+  start-clients:
+    desc: "Start clients project"
+    silent: true
+    dir: "{{.CLIENTS_CODE_DIR}}"
     cmds:
       - mvn clean compile quarkus:dev

@@ -1,0 +1,12 @@
+quarkus:
+  analytics:
+    disabled: false
+
+  # Database
+  datasource:
+    jdbc:
+      transactions: xa
+
+  hibernate-orm:
+    log:
+      sql: false
