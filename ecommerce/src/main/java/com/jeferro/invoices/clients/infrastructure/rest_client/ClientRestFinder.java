@@ -12,7 +12,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped
 @RequiredArgsConstructor
-public class ClientModuleFinder implements ClientFinder {
+public class ClientRestFinder implements ClientFinder {
 
   @Inject
   @RestClient
