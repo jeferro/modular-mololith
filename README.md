@@ -17,13 +17,13 @@ task install
 ## Run tests
 
 ```bash
-task test
+task test-ecommerce
 ```
 
 ## Start the application
 
 ```bash
-task start
+task start-ecommerce
 ```
 
 There is a Bruno collection in directory bruno with all requests of application.

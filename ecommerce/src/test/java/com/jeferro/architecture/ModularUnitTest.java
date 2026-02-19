@@ -21,7 +21,7 @@ class ModularUnitTest {
   private static final String BASE_PACKAGE = "com.jeferro";
 
   private static final ArchCondition<JavaClass> onlyDependOnModularContractsFromOtherModules = new ArchCondition<>(
-          "only depend on classes within modular_contracts package of other modules") {
+          "only depend on classes within modular_api package of other modules") {
 
     @Override
     public void check(JavaClass sourceClass, ConditionEvents events) {
@@ -35,7 +35,7 @@ class ModularUnitTest {
 
       for (JavaClass violation : violations) {
         var message = String.format("Class %s must not depend on %s. Cross-module dependencies may only target " +
-                        "classes in the modular_contracts package",
+                        "classes in the modular_api package",
                 sourceClass.getFullName(), violation.getFullName());
         var event = SimpleConditionEvent.violated(sourceClass, message);
         events.add(event);
