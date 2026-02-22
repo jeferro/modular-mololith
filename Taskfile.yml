@@ -2,6 +2,7 @@ version: "3"
 
 vars:
   CODE_DIR: ecommerce
+  DOCKER_DIR: docker
 
 tasks:
   install:
@@ -20,7 +21,27 @@ tasks:
       - echo "✅ Asdf tools installed successfully"
       - echo ""
 
-      - task: build
+      - task: build-ecommerce
+
+  env-up:
+    desc: "Start environment"
+    silent: true
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - echo "## Starting environment..."
+      - docker-compose up -d
+      - echo "✅ Environment started successfully"
+      - echo ""
+
+  env-down:
+    desc: "Stop environment"
+    silent: true
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - echo "## Stopping environment..."
+      - docker-compose down -v
+      - echo "✅ Environment stopped successfully"
+      - echo ""
 
   build-ecommerce:
     desc: "Build project"

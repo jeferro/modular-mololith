@@ -2,33 +2,16 @@ quarkus:
   analytics:
     disabled: true
 
-  # Database
+  devservices:
+    enabled: false
+
   datasource:
-    db-kind: h2
+    username: ecommerce
+    password: ecommerce
     jdbc:
-      url: jdbc:h2:mem:testdb
-    clients:
-      db-kind: h2
-      jdbc:
-        url: jdbc:h2:mem:testdb
-    invoices:
-      db-kind: h2
-      jdbc:
-        url: jdbc:h2:mem:testdb
+      url: jdbc:postgresql://localhost:5432/ecommerce
 
   hibernate-orm:
     log:
-      sql: false
-    database:
-      generation: drop-and-create
-    sql-load-script: products/dev-data.sql
+      sql: true
 
-    clients:
-      database:
-        generation: drop-and-create
-      sql-load-script: clients/dev-data.sql
-
-    invoices:
-      database:
-        generation: drop-and-create
-      sql-load-script: invoices/dev-data.sql
