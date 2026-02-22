@@ -1,8 +1,8 @@
 version: "3"
 
 vars:
-  ECOMMERCE_CODE_DIR: ecommerce
-  CLIENTS_CODE_DIR: clients
+  CODE_DIR: ecommerce
+  DOCKER_DIR: docker
 
 tasks:
   install:
@@ -21,58 +21,51 @@ tasks:
       - echo "✅ Asdf tools installed successfully"
       - echo ""
 
-      - task: build
+      - task: build-ecommerce
+
+  env-up:
+    desc: "Start environment"
+    silent: true
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - echo "## Starting environment..."
+      - docker-compose up -d
+      - echo "✅ Environment started successfully"
+      - echo ""
+
+  env-down:
+    desc: "Stop environment"
+    silent: true
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - echo "## Stopping environment..."
+      - docker-compose down -v
+      - echo "✅ Environment stopped successfully"
+      - echo ""
 
   build-ecommerce:
-    desc: "Build ecommerce project"
+    desc: "Build project"
     silent: true
-    dir: "{{.ECOMMERCE_CODE_DIR}}"
+    dir: "{{.CODE_DIR}}"
     cmds:
       - echo "## Building ecommerce project..."
       - mvn clean test
       - echo "✅ Project built ecommerce successfully"
       - echo ""
 
-  build-clients:
-    desc: "Build clients project"
-    silent: true
-    dir: "{{.CLIENTS_CODE_DIR}}"
-    cmds:
-      - echo "## Building clients project..."
-      - mvn clean test
-      - echo "✅ Project built clients successfully"
-      - echo ""
-
   test-ecommerce:
-    desc: "Test ecommerce project"
+    desc: "Test project"
     silent: true
-    dir: "{{.ECOMMERCE_CODE_DIR}}"
+    dir: "{{.CODE_DIR}}"
     cmds:
       - echo "## Testing ecommerce project..."
       - mvn clean test
       - echo "✅ Project test ecommerce successfully"
       - echo ""
 
-  test-clients:
-    desc: "Test clients project"
-    silent: true
-    dir: "{{.CLIENTS_CODE_DIR}}"
-    cmds:
-      - echo "## Testing clients project..."
-      - mvn clean test
-      - echo "✅ Project test clients successfully"
-      - echo ""
-
   start-ecommerce:
-    desc: "Start ecommerce project"
+    desc: "Start project"
     silent: true
-    dir: "{{.ECOMMERCE_CODE_DIR}}"
-    cmds:
-      - mvn clean compile quarkus:dev
-
-  start-clients:
-    desc: "Start clients project"
-    silent: true
-    dir: "{{.CLIENTS_CODE_DIR}}"
+    dir: "{{.CODE_DIR}}"
     cmds:
       - mvn clean compile quarkus:dev

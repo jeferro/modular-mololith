@@ -10,8 +10,16 @@ Quarkus project with modular architecture for an e-commerce application. Contain
 
 ## Configure application in local
 
+Install tools:
+
 ```bash
 task install
+```
+
+Execute containers:
+
+```bash
+task env-up
 ```
 
 ## Run tests

@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ecommerce
+      POSTGRES_PASSWORD: ecommerce
+      POSTGRES_DB: ecommerce
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-init-scripts:/docker-entrypoint-initdb.d
+
+  db-clients:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: clients
+      POSTGRES_PASSWORD: clients
+      POSTGRES_DB: clients
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./clients-init-scripts:/docker-entrypoint-initdb.d

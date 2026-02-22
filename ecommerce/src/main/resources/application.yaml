@@ -2,21 +2,12 @@ quarkus:
   analytics:
     disabled: false
 
-  # Database
   datasource:
-    jdbc:
-      transactions: xa
-    invoices:
-      jdbc:
-        transactions: xa
+    db-kind: postgresql
 
   hibernate-orm:
     log:
       sql: false
-    packages:
-      - com.jeferro.products
-      - io.quarkus.hibernate.orm.panache  # Workaround: base classes of Panache to silent warning using multiple datasource
 
-    invoices:
-      datasource: invoices
-      packages: com.jeferro.invoices
+    database:
+      generation: none
