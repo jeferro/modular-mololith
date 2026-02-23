@@ -1,0 +1,19 @@
+quarkus:
+  analytics:
+    disabled: true
+
+  devservices:
+    enabled: false
+
+  datasource:
+    username: clients
+    password: clients
+    jdbc:
+      url: jdbc:postgresql://localhost:5433/clients
+
+  hibernate-orm:
+    log:
+      sql: true
+
+  http:
+    port: 8081

@@ -1,4 +1,4 @@
-package com.jeferro.clients.infrastructure.api_rest.dtos;
+package com.jeferro.invoices.clients.infrastructure.rest_client.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ClientRestDto {
+public class ClientRestDTO {
 
     private String id;
-    private PersonNameRestDto name;
+    private PersonNameRestDTO name;
 }

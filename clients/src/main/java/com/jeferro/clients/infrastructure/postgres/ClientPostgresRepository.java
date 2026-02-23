@@ -2,7 +2,7 @@ package com.jeferro.clients.infrastructure.postgres;
 
 import com.jeferro.clients.domain.models.Client;
 import com.jeferro.clients.domain.repository.ClientRepository;
-import com.jeferro.clients.infrastructure.postgres.mapper.ClientPostgresMapper;
+import com.jeferro.clients.infrastructure.postgres.mappers.ClientPostgresMapper;
 import com.jeferro.clients.infrastructure.postgres.repository.ClientPostgresPanacheRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import lombok.RequiredArgsConstructor;

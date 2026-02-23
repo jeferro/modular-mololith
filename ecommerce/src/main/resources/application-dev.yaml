@@ -15,3 +15,6 @@ quarkus:
     log:
       sql: true
 
+  rest-client:
+    clients-api:
+      url: http://localhost:8081
