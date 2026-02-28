@@ -21,4 +21,4 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - ./postgres-init-scripts:/docker-entrypoint-initdb.d
+      - ./clients-init-scripts:/docker-entrypoint-initdb.d
